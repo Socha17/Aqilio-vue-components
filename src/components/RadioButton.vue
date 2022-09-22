@@ -8,16 +8,15 @@
 
         <template v-for="(radioButton, index) in this.aqilioData.component_data.options">
           <div class="radio">
-            <input :id="index" name="radio" type="radio">
+            <input :id="index" name="radio" type="radio" v-model="value" :value="radioButton.optionText">
             <label :for="index" class="radio-label">{{ radioButton.optionText }}</label>
           </div>
         </template>
 
       </div>
 
-      <!-- think of logic on when to show back button -->
-      <button v-if="aqilioData && aqilioData.component_data.showBackButton" class="button back-btn" style="margin-right: 15px">Back</button>
-      <button class="button">Next</button>
+      <button v-if="aqilioData && aqilioData.component_data.showBackButton" @click="goBack" class="button back-btn" style="margin-right: 15px">Back</button>
+      <button class="button" @click="goNext">Next</button>
     </div>
   </div>
 </template>
@@ -37,7 +36,8 @@ export default {
   },
   mounted() {
     if (this.aqilioData) {
-      this.title = this.aqilioData.value
+      this.title = this.aqilioData.component_data.title
+      this.value = this.aqilioData.value
     }
   },
   methods: {

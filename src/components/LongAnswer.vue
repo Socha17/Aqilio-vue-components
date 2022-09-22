@@ -4,12 +4,11 @@
       <label v-if="!aqilioData" for="LongAnswer">component_data not found</label>
 
       <p><label v-if="aqilioData" for="LongAnswer"> {{ aqilioData.component_data.title }} </label></p>
-      <textarea type="text" id="LongAnswer" name="LongAnswer"></textarea> <br><br>
+      <textarea v-model="value" type="text" id="LongAnswer" name="LongAnswer"></textarea> <br><br>
 
 
-      <!-- think of logic on when to show back button -->
-      <button v-if="aqilioData && aqilioData.component_data.showBackButton" class="button back-btn" style="margin-right: 15px">Back</button>
-      <button class="button">Next</button>
+      <button v-if="aqilioData && aqilioData.component_data.showBackButton" @click="goBack" class="button back-btn" style="margin-right: 15px">Back</button>
+      <button class="button" @click="goNext">Next</button>
     </div>
   </div>
 </template>
@@ -29,7 +28,8 @@ export default {
   },
   mounted() {
     if (this.aqilioData) {
-      this.title = this.aqilioData.value
+      this.title = this.aqilioData.component_data.title
+      this.value = this.aqilioData.value
     }
   },
   methods: {

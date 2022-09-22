@@ -9,21 +9,20 @@
         <template v-for="(radioButton, index) in this.aqilioData.component_data.options">
 
           <div class="checkBoxContainer">
-            <input class="inp-cbx" :id="index" type="checkbox" style="display: none"/>
+            <input class="inp-cbx" :id="index" type="checkbox" style="display: none" v-model="value" :value="radioButton.optionText"/>
             <label class="cbx" :for="index"><span>
                 <svg width="12px" height="10px" viewbox="0 0 12 10">
                   <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                 </svg></span><span> {{ radioButton.optionText }} </span></label>
-
                 <br/>
         </div>
+
         </template>
 
       </div>
 
-      <!-- think of logic on when to show back button -->
-      <button v-if="aqilioData && aqilioData.component_data.showBackButton" class="button back-btn" style="margin-right: 15px">Back</button>
-      <button class="button">Next</button>
+      <button v-if="aqilioData && aqilioData.component_data.showBackButton" @click="goBack" class="button back-btn" style="margin-right: 15px">Back</button>
+      <button class="button" @click="goNext">Next</button>
     </div>
   </div>
 </template>
@@ -38,12 +37,13 @@ export default {
   computed: {},
   data() {
     return {
-      value: null,
+      value: [],
     }
   },
   mounted() {
     if (this.aqilioData) {
-      this.title = this.aqilioData.value
+      this.title = this.aqilioData.component_data.title
+      this.value = this.aqilioData.value
     }
   },
   methods: {

@@ -4,12 +4,11 @@
       <label v-if="!aqilioData" for="shortAnswer">component_data not found</label>
 
       <label v-if="aqilioData" for="shortAnswer"> {{ aqilioData.component_data.title }} </label>
-      <input type="text" id="shortAnswer" name="shortAnswer"><br><br>
+      <input v-model="value" type="text" id="shortAnswer" name="shortAnswer"><br><br>
 
 
-      <!-- think of logic on when to show back button -->
-      <button v-if="aqilioData && aqilioData.component_data.showBackButton" class="button back-btn" style="margin-right: 15px">Back</button>
-      <button class="button">Next</button>
+      <button v-if="aqilioData && aqilioData.component_data.showBackButton" @click="goBack" class="button back-btn" style="margin-right: 15px">Back</button>
+      <button class="button" @click="goNext">Next</button>
     </div>
   </div>
 </template>
@@ -28,9 +27,9 @@ export default {
     }
   },
   mounted() {
-    console.log("ShortAnswer");
     if (this.aqilioData) {
-      this.title = this.aqilioData.value
+      this.title = this.aqilioData.component_data.title
+      this.value = this.aqilioData.value
     }
   },
   methods: {
