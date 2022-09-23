@@ -20,19 +20,12 @@
 
 <script>
 
-import ShortAnswer from './components/ShortAnswer.vue'
-import LongAnswer from './components/LongAnswer.vue'
-import CheckBox from './components/CheckBox.vue'
-import RadioButton from './components/RadioButton.vue'
+
 
 export default {
   name: 'App',
   props: [],
   components: {
-    ShortAnswer,
-    LongAnswer,
-    RadioButton,
-    CheckBox,
   },
   data() {
     return {

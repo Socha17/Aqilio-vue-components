@@ -1,6 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-
+import AqilioVueComponentsPlugin from './AqilioVueComponentsPlugin'
 import './assets/main.css'
 
-createApp(App).mount('#app')
+
+const app = createApp(App)
+app.use(AqilioVueComponentsPlugin)
+app.mount('#app')

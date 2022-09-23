@@ -1,6 +1,22 @@
 {
   "name": " aqilio-vue-components",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "private": false,
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./styles.css": "./dist/style.css"
+  },
+  "browser": {
+    "./styles.css": "./dist/style.css"
+  },
+  "license": "Apache-2.0",
+  "files": [
+    "dist"
+  ],
+  "repository": "https://github.com/Socha17/Aqilio-vue-components",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

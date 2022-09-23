@@ -43,7 +43,7 @@ export default {
   mounted() {
     if (this.aqilioData) {
       this.title = this.aqilioData.component_data.title
-      this.value = this.aqilioData.value
+      this.value = this.aqilioData.value ?? [];
     }
   },
   methods: {
