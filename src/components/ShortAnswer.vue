@@ -3,7 +3,7 @@
     <div class="child">
       <label v-if="!aqilioData" for="shortAnswer">component_data not found</label>
 
-      <label v-if="aqilioData" for="shortAnswer"> {{ aqilioData.component_data.title }} </label>
+      <label v-if="aqilioData" for="shortAnswer" class="titleLabel"> {{ aqilioData.component_data.title }} </label>
       <input v-model="value" type="text" id="shortAnswer" name="shortAnswer"><br><br>
 
 
@@ -53,6 +53,7 @@ input[type=text], select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  max-width: 500px;
 }
 
 input[type=submit] {
@@ -77,12 +78,22 @@ div {
   padding: 20px;
 }
 
+.titleLabel {
+  font-family: Verdana,sans-serif;
+  font-size: 20px;
+}
+
 .parent {
   height: 200px;
 
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.child {
+  max-width: 500px;
+  text-align: left;
 }
 
 .button {

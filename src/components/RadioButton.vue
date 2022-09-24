@@ -3,7 +3,7 @@
     <div class="child">
       <label v-if="!aqilioData" for="shortAnswer">component_data not found</label>
 
-      <label v-if="aqilioData" for="shortAnswer"> {{ aqilioData.component_data.title }} </label>
+      <label v-if="aqilioData" for="shortAnswer" class="titleLabel"> {{ aqilioData.component_data.title }} </label>
       <div class="container" v-if="aqilioData.component_data.options">
 
         <template v-for="(radioButton, index) in this.aqilioData.component_data.options">
@@ -99,6 +99,11 @@ export default {
   margin-right: 0;
 }
 
+.titleLabel {
+  font-family: Verdana,sans-serif;
+  font-size: 22px;
+}
+
 .parent {
   margin-top: 50px;
   font-family: Verdana,sans-serif;
@@ -108,6 +113,10 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.child {
+  text-align: left;
 }
 
 .button {

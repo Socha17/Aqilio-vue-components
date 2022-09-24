@@ -3,7 +3,7 @@
     <div class="child">
       <label v-if="!aqilioData" for="shortAnswer">component_data not found</label>
 
-      <label v-if="aqilioData" for="shortAnswer"> {{ aqilioData.component_data.title }} </label>
+      <label v-if="aqilioData" for="shortAnswer" class="titleLabel"> {{ aqilioData.component_data.title }} </label>
       <div class="container" v-if="aqilioData.component_data.options">
 
         <template v-for="(radioButton, index) in this.aqilioData.component_data.options">
@@ -43,7 +43,7 @@ export default {
   mounted() {
     if (this.aqilioData) {
       this.title = this.aqilioData.component_data.title
-      this.value = this.aqilioData.value ?? [];
+      this.value = this.aqilioData.value ? this.aqilioData.value : [];
     }
   },
   methods: {
@@ -56,9 +56,15 @@ export default {
     }
   }
 };
+
 </script>
 
 <style scoped>
+
+.titleLabel {
+  font-family: Verdana,sans-serif;
+  font-size: 22px;
+}
 
 .container {
   margin-top: 40px;
@@ -147,12 +153,6 @@ export default {
 
 
 .parent {
-
-font-family: "Open Sans", sans-serif;
-font-size: 16px;
-color: #223254;
-
-
   margin-top: 50px;
   font-family: Verdana,sans-serif;
   font-size: 15px;
@@ -161,6 +161,10 @@ color: #223254;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.child {
+  text-align: left;
 }
 
 .button {

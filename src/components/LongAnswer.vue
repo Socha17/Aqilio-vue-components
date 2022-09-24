@@ -3,9 +3,8 @@
     <div class="child">
       <label v-if="!aqilioData" for="LongAnswer">component_data not found</label>
 
-      <p><label v-if="aqilioData" for="LongAnswer"> {{ aqilioData.component_data.title }} </label></p>
+      <p><label v-if="aqilioData" for="LongAnswer" class="titleLabel"> {{ aqilioData.component_data.title }} </label></p>
       <textarea v-model="value" type="text" id="LongAnswer" name="LongAnswer"></textarea> <br><br>
-
 
       <button v-if="aqilioData && aqilioData.component_data.showBackButton" @click="goBack" class="button back-btn" style="margin-right: 15px">Back</button>
       <button class="button" @click="goNext">Next</button>
@@ -77,12 +76,22 @@ div {
   padding: 20px;
 }
 
+.titleLabel {
+  font-family: Verdana,sans-serif;
+  font-size: 22px;
+}
+
 .parent {
   height: 300px;
 
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+.child {
+  text-align: left;
 }
 
 .button {
