@@ -21,7 +21,7 @@
 
       </div>
 
-      <button v-if="aqilioData && aqilioData.component_data.showBackButton" @click="goBack" class="button back-btn" style="margin-right: 15px">Back</button>
+      <button v-if="aqilioData && aqilioData.component_data.show_back_button" @click="goBack" class="button back-btn" style="margin-right: 15px">Back</button>
       <button class="button" @click="goNext">Next</button>
     </div>
   </div>
