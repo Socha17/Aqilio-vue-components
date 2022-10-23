@@ -3,7 +3,11 @@
     <div class="child">
       <p v-if="!aqilioData">component_data not found</p>
 
-      <p v-if="aqilioData" class="titleLabel"> {{ aqilioData.component_data.title }} </p>
+      <div class="imageContainer">
+        <img v-if="aqilioData" :src="aqilioData.component_data.imageUrl"/>
+      </div>
+      <p v-if="aqilioData && aqilioData.component_data.title" class="titleLabel"> {{ aqilioData.component_data.title }} </p>
+      <p v-if="aqilioData && aqilioData.component_data.subtext" class="subtextLabel"> {{ aqilioData.component_data.subtext }} </p>
     </div>
   </div>
 </template>
@@ -30,19 +34,22 @@ export default {
   methods: {
     startTransition() {
       let holdTransitionTime = 3250
+      if (this.aqilioData && this.aqilioData.component_data.transitionTime) {
+        holdTransitionTime = this.aqilioData.component_data.transitionTime
+      }
 
       anime.timeline({
         targets: this.$refs.parent,
-        duration: 400,
+        duration: 650,
         easing: 'easeInOutQuad',
     }).add({
-        translateX: -500,
+        translateX: 500,
         opacity: 0,
     }).add({
         translateX: 0,
         opacity: 1,
     }).add({
-        translateX: 500,
+        translateX: -500,
         opacity: 0,
     }, `+=${holdTransitionTime}`).add({
       begin: () => { this.goNext() }
@@ -96,13 +103,25 @@ div {
 
 .titleLabel {
   font-family: Arial Black,sans-serif;
-  font-size: 40px;
+  font-size: 35px;
   text-align: center;
+  margin: 10px;
+}
+
+.subtextLabel {
+  font-family: sans-serif;
+  font-size: 20px;
+  text-align: center;
+  font-weight: lighter;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
 }
 
 .parent {
   opacity: 0;
-  height: 90vh;
   text-align: center;
 
   display: flex;
@@ -111,7 +130,7 @@ div {
 }
 
 .child {
-  max-width: 500px;
+  max-width: 700px;
   text-align: left;
 }
 

@@ -1,6 +1,15 @@
 <template>
 
-  <AqilioTransition :aqilioData="{component_data: {title: 'When was the last time you went out for dinner?', show_back_button: true}}"/>
+  <AqilioTransition :aqilioData="
+  {
+    component_data: {
+      title: 'When was the last time you went out for dinner?', 
+      subtext: '(Some extra text goes here)', 
+      show_back_button: true,
+      imageUrl: 'https://media.tenor.com/8cYYJ-kVkbQAAAAM/cats.gif',
+      transitionTime: 2500,
+    }
+  }"/>
   <!-- <ShortAnswer :aqilioData="{component_data: {title: 'When was the last time you went out for dinner?', show_back_button: true}}"/> -->
   <!-- <LongAnswer :aqilioData="{component_data: {title: 'When was the last time you went out for dinner?', show_back_button: true}}"/> -->
   <!-- <RadioButton :aqilioData="{
