@@ -1,6 +1,7 @@
 <template>
 
-  <ShortAnswer :aqilioData="{component_data: {title: 'When was the last time you went out for dinner?', show_back_button: true}}"/>
+  <AqilioTransition :aqilioData="{component_data: {title: 'When was the last time you went out for dinner?', show_back_button: true}}"/>
+  <!-- <ShortAnswer :aqilioData="{component_data: {title: 'When was the last time you went out for dinner?', show_back_button: true}}"/> -->
   <!-- <LongAnswer :aqilioData="{component_data: {title: 'When was the last time you went out for dinner?', show_back_button: true}}"/> -->
   <!-- <RadioButton :aqilioData="{
     component_data: {
@@ -20,12 +21,13 @@
 
 <script>
 
-
+// import AqilioTransition from './components/AqilioTransition.vue'
 
 export default {
   name: 'App',
   props: [],
   components: {
+    // AqilioTransition
   },
   data() {
     return {
