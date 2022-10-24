@@ -3,8 +3,8 @@
     <div class="child">
       <p v-if="!aqilioData">component_data not found</p>
 
-      <div class="imageContainer">
-        <img v-if="aqilioData" :src="aqilioData.component_data.imageUrl"/>
+      <div class="imageContainer" v-if="aqilioData && aqilioData.component_data.imageUrl">
+        <img :src="aqilioData.component_data.imageUrl"/>
       </div>
       <p v-if="aqilioData && aqilioData.component_data.title" class="titleLabel"> {{ aqilioData.component_data.title }} </p>
       <p v-if="aqilioData && aqilioData.component_data.subtext" class="subtextLabel"> {{ aqilioData.component_data.subtext }} </p>
